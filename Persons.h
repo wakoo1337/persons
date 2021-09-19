@@ -1,7 +1,8 @@
 #pragma once
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 struct Person {
 	char* name;
 	char* surname;
@@ -20,4 +21,5 @@ int Compare(const struct Person* a, const struct Person* b, const enum SortType 
 struct Person* ParseCmdLine(const int argc, char** argv, unsigned long* count);
 int MakeInverseFlag(const enum SortType type);
 bool IsSorted(const struct Person* list, const int count, const enum SortType type);
+void Display(const struct Person* list, const int count);
 #define BIG_SORT 12

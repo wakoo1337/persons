@@ -6,7 +6,6 @@ int main(int argc, char** argv) {
 	arr = ParseCmdLine(argc, argv, &count);
 	Sort(arr, count, asc);
 
-	for (unsigned long i = 0; i < count; i++) {
-		printf("%lu %s %s %s %u\n", i, arr[i].name, arr[i].surname, arr[i].patr, arr[i].age);
-	};
+	Display(arr, count);
+	return 0;
 };

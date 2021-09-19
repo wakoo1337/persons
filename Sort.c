@@ -5,12 +5,12 @@ void Sort(struct Person* persons, const int count, const enum SortType type) {
 	int lcount, rcount;
 
 	lcount = count / 2;
-	left = (struct Person *) malloc(lcount * sizeof(struct Person));
-	memcpy(left , persons         , lcount * sizeof(struct Person));
+	left  = (struct Person *) malloc(lcount * sizeof(struct Person));
+	memcpy(left , persons         ,  lcount * sizeof(struct Person));
 
 	rcount = count - lcount;
-	right = (struct Person*) malloc(rcount * sizeof(struct Person));
-	memcpy(right, persons + lcount, rcount * sizeof(struct Person));
+	right = (struct Person *) malloc(rcount * sizeof(struct Person));
+	memcpy(right, persons + lcount,  rcount * sizeof(struct Person));
 
 	if (lcount > BIG_SORT) Sort(left , lcount, type);
 	else SmallSort(left , lcount, type);
