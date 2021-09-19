@@ -4,7 +4,7 @@ int MakeInverseFlag(const enum SortType type) {
 	else {
 		if (type == desc) return -1;
 		else {
-			puts("Неверный флаг");
+			puts("РќРµРІРµСЂРЅС‹Р№ С„Р»Р°Рі");
 			exit(0);
 		};
 	};

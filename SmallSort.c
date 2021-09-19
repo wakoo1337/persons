@@ -1,5 +1,6 @@
 #include "Persons.h"
 void SmallSort(struct Person* persons, const int count, const enum SortType type) {
+	// Сортировка участков массивов вставками
 	int already = 1;
 	while (already < count) {
 		int new_pos = 0;

@@ -1,5 +1,7 @@
 #include "Persons.h"
 void Sort(struct Person* persons, const int count, const enum SortType type) {
+	// РЎРѕСЂС‚РёСЂРѕРІРєР° Р±РѕР»СЊС€РёС… РјР°СЃСЃРёРІРѕРІ СЃР»РёСЏРЅРёРµРј
+	
 	struct Person* left;
 	struct Person* right;
 	int lcount, rcount;
@@ -24,20 +26,20 @@ void Sort(struct Person* persons, const int count, const enum SortType type) {
 
 	while (i < count) {
 		if (Compare(&left[left_i], &right[right_i], type) > 0) {
-			/* Левый больше, берём из правого */
+			/* Р›РµРІС‹Р№ Р±РѕР»СЊС€Рµ, Р±РµСЂС‘Рј РёР· РїСЂР°РІРѕРіРѕ */
 			persons[i] = right[right_i];
 			right_i++;
 			if (right_i == rcount) {
-				/* Правый исчерпан */
+				/* РџСЂР°РІС‹Р№ РёСЃС‡РµСЂРїР°РЅ */
 				memcpy(persons + i + 1, left + left_i, sizeof(struct Person) * (lcount - left_i));
 				break;
 			};
 		} else {
-			/* Правый больше или равен левому, берём из левого */
+			/* РџСЂР°РІС‹Р№ Р±РѕР»СЊС€Рµ РёР»Рё СЂР°РІРµРЅ Р»РµРІРѕРјСѓ, Р±РµСЂС‘Рј РёР· Р»РµРІРѕРіРѕ */
 			persons[i] =  left[left_i];
 			left_i++;
 			if (left_i == lcount) {
-				/* Левый исчерпан */
+				/* Р›РµРІС‹Р№ РёСЃС‡РµСЂРїР°РЅ */
 				memcpy(persons + i + 1, right + right_i, sizeof(struct Person) * (rcount - right_i));
 				break;
 			};
