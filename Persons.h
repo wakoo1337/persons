@@ -22,4 +22,5 @@ struct Person* ParseCmdLine(const int argc, char** argv, unsigned long* count);
 int MakeInverseFlag(const enum SortType type);
 bool IsSorted(const struct Person* list, const int count, const enum SortType type);
 void Display(const struct Person* list, const int count);
+void CheckSafeArg(const int arg, const int argc, const char *value);
 #define BIG_SORT 12
