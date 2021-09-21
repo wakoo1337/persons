@@ -1,6 +1,10 @@
 #include "Persons.h"
-void Sort(struct Person* persons, const int count, const enum SortType type) {
+int Sort(struct Person* persons, const int count, const enum SortType type) {
 	// Сортировка больших массивов слиянием
+	
+	if (!persons) return SORT_ARRAY_NULLPTR;
+	if (!count)   return SORT_ZERO_COUNT;
+	if ((type != asc) && (type != desc)) return SORT_BAD_ORDER;
 	
 	struct Person* left;
 	struct Person* right;
@@ -49,4 +53,6 @@ void Sort(struct Person* persons, const int count, const enum SortType type) {
 
 	free(left);
 	free(right);
+	
+	return SORT_OK;
 };

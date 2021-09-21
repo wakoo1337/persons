@@ -1,9 +1,9 @@
 .PHONY: all
 all: Persons.exe
-Persons.exe: statlib.lib Persons.obj
-	link /out:Persons.exe statlib.lib Persons.obj
-statlib.lib: Compare.obj CompareStrings.obj defperson.obj Display.obj IsSorted.obj MakeInverseFlag.obj ParseCmdLine.obj Sort.obj SmallSort.obj CheckSafeArg.obj
-	lib /out:statlib.lib Compare.obj CompareStrings.obj defperson.obj Display.obj IsSorted.obj MakeInverseFlag.obj ParseCmdLine.obj Sort.obj SmallSort.obj CheckSafeArg.obj
+Persons.exe: sort.lib Persons.obj defperson.obj Display.obj IsSorted.obj ParseCmdLine.obj CheckSafeArg.obj GetOrder.obj
+	link /out:Persons.exe sort.lib Persons.obj defperson.obj Display.obj IsSorted.obj ParseCmdLine.obj CheckSafeArg.obj GetOrder.obj
+sort.lib: Compare.obj CompareStrings.obj MakeInverseFlag.obj Sort.obj SmallSort.obj sort_errors.obj
+	lib /out:sort.lib Compare.obj CompareStrings.obj MakeInverseFlag.obj Sort.obj SmallSort.obj sort_errors.obj
 Compare.obj: Compare.c Persons.h
 	cl /c Compare.c
 CompareStrings.obj: CompareStrings.c Persons.h
@@ -26,3 +26,7 @@ SmallSort.obj: SmallSort.c Persons.h
 	cl /c SmallSort.c
 CheckSafeArg.obj: CheckSafeArg.c Persons.h
 	cl /c CheckSafeArg.c
+sort_errors.obj: sort_errors.c Persons.h
+	cl /c sort_errors.c
+GetOrder.obj: GetOrder.c Persons.h
+	cl /c GetOrder.c

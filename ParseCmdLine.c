@@ -11,17 +11,17 @@ struct Person* ParseCmdLine(const int argc, char** argv, unsigned long* count) {
 			if (!CompareStrings(argv[j], "--fn")) {
 				j++;
 				CheckSafeArg(j, argc, argv[j]);
-				ret[(*count) - 1].name = strdup(argv[j]);
+				ret[(*count) - 1].name = _strdup(argv[j]);
 			} else {
 				if (!CompareStrings(argv[j], "--ln")) {
 					j++;
 					CheckSafeArg(j, argc, argv[j]);
-					ret[(*count) - 1].surname = strdup(argv[j]);
+					ret[(*count) - 1].surname = _strdup(argv[j]);
 				} else {
 					if (!CompareStrings(argv[j], "--mn")) {
 						j++;
 						CheckSafeArg(j, argc, argv[j]);
-						ret[(*count) - 1].patr = strdup(argv[j]);
+						ret[(*count) - 1].patr = _strdup(argv[j]);
 					} else {
 						if (!CompareStrings(argv[j], "--age")) {
 							j++;
