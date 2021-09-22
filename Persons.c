@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
 	
 	if (status) {
 		puts(sort_errors[status]);
-		return 0;
+		return status;
 	};
 	
 	Display(arr, count);

@@ -29,7 +29,7 @@ struct Person* ParseCmdLine(const int argc, char** argv, unsigned long* count) {
 							sscanf_s(argv[j], "%u", &ret[(*count) - 1].age);
 						} else {
 							puts("Неверный аргумент");
-							exit(0);
+							exit(-1);
 						};
 					};
 				};
